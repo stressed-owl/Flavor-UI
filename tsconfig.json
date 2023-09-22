@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
     "sourceMap": true,
@@ -33,9 +34,12 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "vueCompilerOptions": {
+    "allowJs": true
+  }
 }
