@@ -1,7 +1,7 @@
 <template>
     <header class="bg-[#F3D9DC]">
-        <div class="p-4 max-w-[1325px] m-auto flex items-center justify-between">
-            <router-link to="/" class="font-bold text-3xl">LineStuck</router-link>
+        <div class="p-4 max-w-[1425px] m-auto flex items-center justify-between">
+            <app-logo></app-logo>
             <div class="flex gap-16">
                 <router-link  v-for="link in navLinks" :to="link.url" :key="link.title">
                     {{ link.title }}
@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import { RouterLink } from "vue-router"
+import AppLogo from "@/components/logo/AppLogo.vue"
 
 interface NavLink {
     title: string;
