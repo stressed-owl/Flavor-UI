@@ -14,7 +14,7 @@ const snacks = ref<Food[]>([]);
 
 const fetchSnacks = async () => {
     try {
-        const response = await axios.get("https://api.spoonacular.com/recipes/complexSearch?apiKey=1129d6441bbb48c4baf8c9dca3f5a901&number=52&type=snack");
+        const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.API_KEY}&number=52&type=snack`);
         snacks.value.push(...response.data.results);
     } catch (e) {
         console.log(e);
