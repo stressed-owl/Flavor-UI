@@ -9,20 +9,13 @@ import axios from "axios";
 import FoodList from "@/components/lists/foodList/FoodList.vue";
 import { Food } from "@/interfaces/Food";
 import { ref, onMounted } from "vue";
+import { useFoodStore } from "@/store/store";
 
+const store = useFoodStore();
 const snacks = ref<Food[]>([]);
 
-const fetchSnacks = async () => {
-    try {
-        const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.API_KEY}&number=52&type=snack`);
-        snacks.value.push(...response.data.results);
-    } catch (e) {
-        console.log(e);
-    }
-}
-
 onMounted(() => {
-    fetchSnacks()
+    store.fetchFood('snack', snacks.value)
 })
 
 </script>
