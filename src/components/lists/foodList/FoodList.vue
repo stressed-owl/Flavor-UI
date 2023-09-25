@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-wrap gap-5 my-[50px]">
+    <div class="flex flex-wrap gap-5">
         <food-card v-for="food in (props.foods as Food[])" :key="(food as Food).id" :food="(food as Food)"></food-card>
     </div>
 </template>

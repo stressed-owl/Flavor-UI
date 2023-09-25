@@ -1,15 +1,11 @@
 <template>
   <div class="app">
-    <div class="app__header">
       <custom-header></custom-header>
-    </div>
-    <div class="max-w-[1325px] m-auto">
-      <categories-list></categories-list>
-      <router-view></router-view>
-    </div>
-    <div class="app__footer">
+      <div class="max-w-[1325px] m-auto">
+        <categories-list></categories-list>
+        <router-view class="my-[50px]"></router-view>
+      </div>
       <custom-footer></custom-footer>
-    </div>
   </div>
   
 </template>
