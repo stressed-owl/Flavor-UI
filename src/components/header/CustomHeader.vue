@@ -35,7 +35,7 @@ const navLinks: NavLink[] = [
     },
     {
         title: "Careers",
-        url: "/careers"
+        url: "/career"
     }
 ]
 </script>

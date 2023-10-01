@@ -1,20 +1,25 @@
 <template>
-    <div>
-        <food-list :foods="breakfasts"></food-list>
+  <div>
+    <recipe-list :foods="breakfasts"></recipe-list>
+    <div class="my-[100px] flex items-center justify-center gap-5">
+      <PrimeButton label="Next" @click="page = page + 1" />
+      <PrimeButton label="Back" @click="page = page - 1" />
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import FoodList from "@/components/lists/foodList/FoodList.vue";
+import RecipeList from "@/components/recipeList/RecipeList.vue";
 import { useFoodStore } from "@/store/store";
-import { onMounted, ref } from "vue";
-import { Food } from "@/interfaces/Food";
+import { onBeforeMount, ref } from "vue";
+import { SpoonRecipe } from "@/interfaces/SpoonRecipe";
 
 const store = useFoodStore();
-const breakfasts = ref<Food[]>([]);
+const breakfasts = ref<SpoonRecipe[]>([]);
 
-onMounted(() => {
-    store.fetchFood('breakfast', breakfasts.value);
-})
+const page = ref(1);
 
+onBeforeMount(() => {
+  store.fetchSpoonRecipes("breakfast", breakfasts.value, page.value);
+});
 </script>

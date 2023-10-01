@@ -1,21 +1,25 @@
 <template>
-    <div>
-        <food-list :foods="snacks"></food-list>
+  <div>
+    <recipe-list :foods="snacks"></recipe-list>
+    <div class="my-[100px] flex items-center justify-center gap-5">
+      <PrimeButton label="Next" @click="page = page + 1" />
+      <PrimeButton label="Back" @click="page = page - 1" />
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import axios from "axios";
-import FoodList from "@/components/lists/foodList/FoodList.vue";
-import { Food } from "@/interfaces/Food";
-import { ref, onMounted } from "vue";
+import RecipeList from "@/components/recipeList/RecipeList.vue";
+import { SpoonRecipe } from "@/interfaces/SpoonRecipe";
+import { ref, onBeforeMount } from "vue";
 import { useFoodStore } from "@/store/store";
 
 const store = useFoodStore();
-const snacks = ref<Food[]>([]);
+const snacks = ref<SpoonRecipe[]>([]);
 
-onMounted(() => {
-    store.fetchFood('snack', snacks.value)
-})
+const page = ref(1);
 
+onBeforeMount(() => {
+  store.fetchSpoonRecipes("snack", snacks.value, page.value);
+});
 </script>
