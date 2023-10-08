@@ -6,24 +6,21 @@ import { ref } from "vue";
 
 export const useFoodStore = defineStore("food", () => {
   const myRecipes = ref<MyRecipe[]>([]);
+  const spoonRecipes = ref<SpoonRecipe[]>([]);
 
   // Fetching recipies from Spoonacular API
-  const fetchSpoonRecipes = async (
-    type: string,
-    recipes: SpoonRecipe[],
-    page: number
-  ) => {
+  const fetchSpoonRecipes = async () => {
     try {
-      const response = await axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=2&_offset=${page * 2}`);
-      recipes.push(...response.data);
+      const response = await axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=10`);
+      spoonRecipes.value.push(...response.data);
     } catch (e) {
       console.log(e);
     }
   };
 
-  return { fetchSpoonRecipes, myRecipes };
+  return { fetchSpoonRecipes, myRecipes, spoonRecipes };
 });
 
-// `https://api.spoonacular.com/recipes/complexSearch?apiKey=${
-//   process.env.VUE_APP_API_KEY
-// }&number=12&type=${type}&offset=${page * 12}`
+// https://api.edamam.com
+
+
