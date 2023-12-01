@@ -1,5 +1,5 @@
-import { SpoonRecipe } from "@/interfaces/SpoonRecipe";
-import { MyRecipe } from "@/interfaces/MyRecipe";
+import { SpoonRecipe } from "@/interfaces/recipes/SpoonRecipe";
+import { MyRecipe } from "@/interfaces/recipes/MyRecipe";
 import axios from "axios";
 import { defineStore } from "pinia";
 import { ref } from "vue";
@@ -20,7 +20,5 @@ export const useFoodStore = defineStore("food", () => {
 
   return { fetchSpoonRecipes, myRecipes, spoonRecipes };
 });
-
-// https://api.edamam.com
 
 

@@ -1,8 +1,8 @@
-# linestuck
+# FlavorfulPlate
 
 ## Project setup
 ```
-yarn install
+yarn install 
 ```
 
 ### Compiles and hot-reloads for development
@@ -19,6 +19,3 @@ yarn build
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
