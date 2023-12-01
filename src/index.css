@@ -5,7 +5,10 @@
 
 @layer base {
     * {
-        font-family: 'Nunito', sans-serif;
-        color: #111;
+        font-family: 'Exo 2', sans-serif;
+        color: #222222;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 }
