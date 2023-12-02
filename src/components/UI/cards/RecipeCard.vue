@@ -1,6 +1,13 @@
 <template>
   <router-link :to="`/drink/${props.food.id}`">
-    <v-card title="Card title" subtitle="Subtitle" text="..."></v-card>
+    <v-card class="rounded w-[350px] h-fit">
+      <v-img class="w-[350px] h-[250px]" cover :src="food.image"></v-img>
+      <div class="p-2">
+        <v-card-title class="text-[#AFCBFF] font-bold break-all">
+          {{ food.title }}
+        </v-card-title>
+      </div>
+    </v-card>
   </router-link>
 </template>
 

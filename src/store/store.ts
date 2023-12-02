@@ -5,20 +5,25 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useFoodStore = defineStore("food", () => {
+  // Arrays to store recipies from database and API respectively
   const myRecipes = ref<MyRecipe[]>([]);
   const spoonRecipes = ref<SpoonRecipe[]>([]);
+  // Food category that user enters in a text field
+  const foodCategory = ref<string>("");
 
   // Fetching recipies from Spoonacular API
   const fetchSpoonRecipes = async () => {
+    spoonRecipes.value = [];
     try {
-      const response = await axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=10`);
-      spoonRecipes.value.push(...response.data);
+      const URL = `https://api.spoonacular.com/recipes/random?apiKey=${process.env.VUE_APP_API_KEY}&number=100&tags=${foodCategory.value.toLowerCase()}`;
+      const response = await axios.get(URL);
+      spoonRecipes.value.push(...response.data.recipes);
     } catch (e) {
       console.log(e);
     }
   };
 
-  return { fetchSpoonRecipes, myRecipes, spoonRecipes };
+  return { fetchSpoonRecipes, myRecipes, spoonRecipes, foodCategory };
 });
 
 

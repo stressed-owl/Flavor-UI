@@ -11,4 +11,6 @@ const navLinks: NavLink[] = [
     }
 ]
 
-export { navLinks }
+const categoryPlaceholders: string[] = ['Dessert', 'Vegetarian', 'German', 'Italian']
+
+export { navLinks, categoryPlaceholders }
