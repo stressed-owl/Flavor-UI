@@ -1,4 +1,4 @@
-import { SpoonRecipe } from "@/interfaces/recipes/SpoonRecipe";
+import { SpoonRecipe } from './../interfaces/recipes/SpoonRecipe';
 import { MyRecipe } from "@/interfaces/recipes/MyRecipe";
 import axios from "axios";
 import { defineStore } from "pinia";
@@ -8,6 +8,7 @@ export const useFoodStore = defineStore("food", () => {
   // Arrays to store recipies from database and API respectively
   const myRecipes = ref<MyRecipe[]>([]);
   const spoonRecipes = ref<SpoonRecipe[]>([]);
+  const wishlistRecipes = ref<SpoonRecipe[]>([]);
   // Food category that user enters in a text field
   const foodCategory = ref<string>("");
 
@@ -23,7 +24,25 @@ export const useFoodStore = defineStore("food", () => {
     }
   };
 
-  return { fetchSpoonRecipes, myRecipes, spoonRecipes, foodCategory };
+  const addRecipeToWishlist = (recipe: SpoonRecipe) => {
+    wishlistRecipes.value.push(recipe);
+  }
+
+  const deleteRecipeFromWishlist = (recipe: SpoonRecipe) => {
+    wishlistRecipes.value = wishlistRecipes.value.filter((wishRecipe: SpoonRecipe) => wishRecipe.id !== recipe.id);
+  }
+
+  console.log(wishlistRecipes.value);
+
+  return { 
+    addRecipeToWishlist, 
+    deleteRecipeFromWishlist, 
+    fetchSpoonRecipes, 
+    myRecipes, 
+    spoonRecipes, 
+    foodCategory,
+    wishlistRecipes
+  };
 });
 
 

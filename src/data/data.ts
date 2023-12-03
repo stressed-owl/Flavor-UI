@@ -8,6 +8,10 @@ const navLinks: NavLink[] = [
     {
         title: "About",
         url: "/about"
+    },
+    {
+        title: "Wishlist",
+        url: "/wishlist"
     }
 ]
 

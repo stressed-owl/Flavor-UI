@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import RecipeCard from "../UI/cards/RecipeCard.vue";
+import RecipeCard from "@/components/UI/cards/RecipeCard.vue";
 import { defineProps } from "vue";
 import { SpoonRecipe } from "@/interfaces/recipes/SpoonRecipe";
 

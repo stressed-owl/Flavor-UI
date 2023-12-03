@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import RecipeList from "@/components/recipeList/RecipeList.vue";
+import RecipeList from "@/components/lists/recipeList/RecipeList.vue";
 import CategoryTextField from "@/components/UI/textFields/CategoryTextField.vue";
 import { useFoodStore } from "@/store/store";
 import { onMounted } from "vue";
