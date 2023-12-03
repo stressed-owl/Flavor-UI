@@ -1,18 +1,18 @@
-import { SpoonRecipe } from './../interfaces/recipes/SpoonRecipe';
+import { SpoonRecipe } from '@/interfaces/recipes/SpoonRecipe';
 import { MyRecipe } from "@/interfaces/recipes/MyRecipe";
 import axios from "axios";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useFoodStore = defineStore("food", () => {
-  // Arrays to store recipies from database and API respectively
+  // Arrays to store recipes from database and API respectively
   const myRecipes = ref<MyRecipe[]>([]);
   const spoonRecipes = ref<SpoonRecipe[]>([]);
   const wishlistRecipes = ref<SpoonRecipe[]>([]);
   // Food category that user enters in a text field
   const foodCategory = ref<string>("");
 
-  // Fetching recipies from Spoonacular API
+  // Fetching recipes from Spoonacular API
   const fetchSpoonRecipes = async () => {
     spoonRecipes.value = [];
     try {
@@ -24,15 +24,19 @@ export const useFoodStore = defineStore("food", () => {
     }
   };
 
+  if(JSON.parse(localStorage.getItem('wishlist_recipes')!) !== null) {
+    wishlistRecipes.value = JSON.parse(localStorage.getItem('wishlist_recipes')!);
+  }
+
   const addRecipeToWishlist = (recipe: SpoonRecipe) => {
     wishlistRecipes.value.push(recipe);
+    localStorage.setItem("wishlist_recipes", JSON.stringify(wishlistRecipes.value));
   }
 
   const deleteRecipeFromWishlist = (recipe: SpoonRecipe) => {
     wishlistRecipes.value = wishlistRecipes.value.filter((wishRecipe: SpoonRecipe) => wishRecipe.id !== recipe.id);
+    localStorage.setItem("wishlist_recipes", JSON.stringify(wishlistRecipes.value));
   }
-
-  console.log(wishlistRecipes.value);
 
   return { 
     addRecipeToWishlist, 
