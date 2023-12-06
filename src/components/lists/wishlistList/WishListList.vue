@@ -25,6 +25,6 @@
 import {useFoodStore} from "@/store/store";
 import RecipeCard from "@/components/UI/cards/RecipeCard.vue";
 
-const wishlistRecipes = JSON.parse(localStorage.getItem("wishlist_recipes"))
+const wishlistRecipes = JSON.parse(localStorage.getItem("wishlist_recipes") || "{}")
 const store = useFoodStore();
 </script>

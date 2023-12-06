@@ -24,8 +24,8 @@ export const useFoodStore = defineStore("food", () => {
     }
   };
 
-  if(JSON.parse(localStorage.getItem('wishlist_recipes')!) !== null) {
-    wishlistRecipes.value = JSON.parse(localStorage.getItem('wishlist_recipes')!);
+  if(JSON.parse(localStorage.getItem('wishlist_recipes') || "{}") !== null) {
+    wishlistRecipes.value = JSON.parse(localStorage.getItem('wishlist_recipes') || "{}");
   }
 
   const addRecipeToWishlist = (recipe: SpoonRecipe) => {
