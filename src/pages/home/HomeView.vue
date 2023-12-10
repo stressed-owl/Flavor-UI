@@ -22,4 +22,5 @@ const store = useFoodStore();
 onMounted(() => {
   store.fetchSpoonRecipes();
 });
+
 </script>
