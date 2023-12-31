@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from "@/pages/home/HomeView.vue"
 import AboutView from "@/pages/about/AboutView.vue"
+import RecipeDetails from "@/pages/recipeDetails/RecipeDetails.vue";
+import RecipeCustom from "@/pages/recipeCustom/RecipeCustom.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -17,6 +19,16 @@ const routes: Array<RouteRecordRaw> = [
       path: "/about",
       name: "About",
       component: AboutView
+    },
+    {
+      path: "/recipe/:id",
+      name: "Recipe Details",
+      component: RecipeDetails
+    },
+    {
+      path: "/my-own-recipes",
+      name: "My own recipes",
+      component: RecipeCustom
     }
 ]
 

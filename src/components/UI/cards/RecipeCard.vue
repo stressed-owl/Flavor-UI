@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/drink/${props.food.id}`">
+  <router-link :to="`/recipe/${props.food.id}`">
     <v-card class="rounded w-[350px] h-fit">
       <v-img class="w-[350px] h-[250px]" cover :src="food.image"></v-img>
       <div class="p-2">
