@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { categoryPlaceholders } from "../../../data/data.ts";
+import { categoryPlaceholders } from "../../../data/data";
 import { useFoodStore } from "../../../store/store";
 
 const placeholder = categoryPlaceholders[Math.floor(Math.random()*categoryPlaceholders.length)];
