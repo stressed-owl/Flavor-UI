@@ -35,6 +35,7 @@ export const useFoodStore = defineStore("food", () => {
     }
   };
 
+  // Fetching recipies from database
   const fetchCustomRecipes = async () => {
     try {
       const response = await API.get("/recipe");
