@@ -10,8 +10,8 @@ const navLinks: NavLink[] = [
         url: "/about"
     },
     {
-        title: "Wishlist",
-        url: "/wishlist"
+        title: "My own recipes",
+        url: "/my-own-recipes"
     }
 ]
 

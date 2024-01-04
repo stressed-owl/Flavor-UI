@@ -10,7 +10,6 @@
   "dependencies": {
     "autoprefixer": "^10.4.16",
     "axios": "^1.5.0",
-    "buefy": "^0.9.25",
     "dotenv": "^16.3.1",
     "pinia": "^2.1.6",
     "postcss": "^8.4.30",
@@ -29,6 +28,8 @@
     "@vue/eslint-config-typescript": "^9.1.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
     "typescript": "~4.5.5"
   }
 }

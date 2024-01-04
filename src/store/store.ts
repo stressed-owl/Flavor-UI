@@ -12,7 +12,10 @@ export const useFoodStore = defineStore("food", () => {
   // Food category that user enters in a text field
   const foodCategory = ref<string>("");
 
-  // Fetching recipes from Spoonacular API
+  // Ref variable that holds modal's state
+  const isModalShown = ref(false);
+
+  // Fetching recipies from Spoonacular API
   const fetchSpoonRecipes = async () => {
     spoonRecipes.value = [];
     try {
@@ -24,6 +27,11 @@ export const useFoodStore = defineStore("food", () => {
     }
   };
 
+  const handleBurgerMenuClick = () => {
+    isModalShown.value = !isModalShown.value;
+  }
+
+  return { fetchSpoonRecipes, myRecipes, spoonRecipes, foodCategory, handleBurgerMenuClick, isModalShown };
   if(JSON.parse(localStorage.getItem('wishlist_recipes') || "{}") !== null) {
     wishlistRecipes.value = JSON.parse(localStorage.getItem('wishlist_recipes') || "{}");
   }
