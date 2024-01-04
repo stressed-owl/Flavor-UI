@@ -1,4 +1,4 @@
-export interface MyRecipe {
+export interface CustomRecipe {
     id: number;
     name: string;
     type: string;

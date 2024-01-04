@@ -1,52 +1,19 @@
 import { SpoonRecipe } from '@/interfaces/recipes/SpoonRecipe';
-import { MyRecipe } from "@/interfaces/recipes/MyRecipe";
+import { CustomRecipe } from "@/interfaces/recipes/CustomRecipe";
 import axios from "axios";
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import API from "../API/instance";
 
 export const useFoodStore = defineStore("food", () => {
   // Arrays to store recipes from database and API respectively
-  const myRecipes = ref<MyRecipe[]>([]);
+  const customRecipes = ref<CustomRecipe[]>([]);
   const spoonRecipes = ref<SpoonRecipe[]>([]);
-  const wishlistRecipes = ref<SpoonRecipe[]>([]);
   // Food category that user enters in a text field
   const foodCategory = ref<string>("");
 
   // Ref variable that holds modal's state
   const isModalShown = ref(false);
-
-  // Fetching recipies from Spoonacular API
-  const fetchSpoonRecipes = async () => {
-    spoonRecipes.value = [];
-    try {
-      const URL = `https://api.spoonacular.com/recipes/random?apiKey=${
-        process.env.VUE_APP_API_KEY
-      }&number=100&tags=${foodCategory.value.toLowerCase()}`;
-      const response = await axios.get(URL);
-      spoonRecipes.value.push(...response.data.recipes);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const handleBurgerMenuClick = () => {
-    isModalShown.value = !isModalShown.value;
-  };
-
-  return { fetchSpoonRecipes, myRecipes, spoonRecipes, foodCategory, handleBurgerMenuClick, isModalShown };
-  if(JSON.parse(localStorage.getItem('wishlist_recipes') || "{}") !== null) {
-    wishlistRecipes.value = JSON.parse(localStorage.getItem('wishlist_recipes') || "{}");
-  }
-
-  const addRecipeToWishlist = (recipe: SpoonRecipe) => {
-    wishlistRecipes.value.push(recipe);
-    localStorage.setItem("wishlist_recipes", JSON.stringify(wishlistRecipes.value));
-  }
-
-  const deleteRecipeFromWishlist = (recipe: SpoonRecipe) => {
-    wishlistRecipes.value = wishlistRecipes.value.filter((wishRecipe: SpoonRecipe) => wishRecipe.id !== recipe.id);
-    localStorage.setItem("wishlist_recipes", JSON.stringify(wishlistRecipes.value));
-  }
 
   // Ref variables that hold user's custom recipe values
   const name = ref("");
@@ -56,18 +23,72 @@ export const useFoodStore = defineStore("food", () => {
   const cookingTime = ref("");
   const instructions = ref("");
 
+  // Fetching recipies from Spoonacular API
+  const fetchSpoonRecipes = async () => {
+    spoonRecipes.value = [];
+    try {
+      const URL = `https://api.spoonacular.com/recipes/random?apiKey=b5e107c53a054ab98e7f0afb88dc6bea&number=100&tags=${foodCategory.value.toLowerCase()}`;
+      const response = await axios.get(URL);
+      spoonRecipes.value.push(...response.data.recipes);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const fetchCustomRecipes = async () => {
+    try {
+      const response = await API.get("/recipe");
+      customRecipes.value.push(...response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const addCustomRecipe = async () => {
+    try {
+      const data = {
+        name: name,
+        type: type,
+        cuisine: cuisine,
+        ingredients: ingredients,
+        cookingTime: cookingTime,
+        instructions: instructions
+      }
+      const response = await API.post("/recipe", data);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  const deleteCustomRecipe = async (id: number) => {
+    try {
+      const response = await API.delete(`/recipe/${id}`);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  } 
+
+  const handleBurgerMenuClick = () => {
+    isModalShown.value = !isModalShown.value;
+  };
+
   return {
     fetchSpoonRecipes,
-    myRecipes,
+    customRecipes,
     spoonRecipes,
     foodCategory,
     handleBurgerMenuClick,
+    addCustomRecipe,
+    deleteCustomRecipe,
+    fetchCustomRecipes,
     isModalShown,
     name,
     type,
     cuisine,
     ingredients,
     cookingTime,
-    instructions
+    instructions,
   };
 });
