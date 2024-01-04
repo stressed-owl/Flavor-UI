@@ -19,7 +19,9 @@ export const useFoodStore = defineStore("food", () => {
   const fetchSpoonRecipes = async () => {
     spoonRecipes.value = [];
     try {
-      const URL = `https://api.spoonacular.com/recipes/random?apiKey=${process.env.VUE_APP_API_KEY}&number=100&tags=${foodCategory.value.toLowerCase()}`;
+      const URL = `https://api.spoonacular.com/recipes/random?apiKey=${
+        process.env.VUE_APP_API_KEY
+      }&number=100&tags=${foodCategory.value.toLowerCase()}`;
       const response = await axios.get(URL);
       spoonRecipes.value.push(...response.data.recipes);
     } catch (e) {
@@ -29,7 +31,7 @@ export const useFoodStore = defineStore("food", () => {
 
   const handleBurgerMenuClick = () => {
     isModalShown.value = !isModalShown.value;
-  }
+  };
 
   return { fetchSpoonRecipes, myRecipes, spoonRecipes, foodCategory, handleBurgerMenuClick, isModalShown };
   if(JSON.parse(localStorage.getItem('wishlist_recipes') || "{}") !== null) {
@@ -46,15 +48,26 @@ export const useFoodStore = defineStore("food", () => {
     localStorage.setItem("wishlist_recipes", JSON.stringify(wishlistRecipes.value));
   }
 
-  return { 
-    addRecipeToWishlist, 
-    deleteRecipeFromWishlist, 
-    fetchSpoonRecipes, 
-    myRecipes, 
-    spoonRecipes, 
+  // Ref variables that hold user's custom recipe values
+  const name = ref("");
+  const type = ref("");
+  const cuisine = ref("");
+  const ingredients = ref("");
+  const cookingTime = ref("");
+  const instructions = ref("");
+
+  return {
+    fetchSpoonRecipes,
+    myRecipes,
+    spoonRecipes,
     foodCategory,
-    wishlistRecipes
+    handleBurgerMenuClick,
+    isModalShown,
+    name,
+    type,
+    cuisine,
+    ingredients,
+    cookingTime,
+    instructions
   };
 });
-
-
