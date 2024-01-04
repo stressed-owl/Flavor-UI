@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from "@/pages/home/HomeView.vue"
 import AboutView from "@/pages/about/AboutView.vue"
+import WishListView from "@/pages/wishlist/WishListView.vue"
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -17,6 +18,11 @@ const routes: Array<RouteRecordRaw> = [
       path: "/about",
       name: "About",
       component: AboutView
+    },
+    {
+      path: "/wishlist",
+      name: "WishList",
+      component: WishListView
     }
 ]
 
