@@ -8,6 +8,10 @@ const navLinks: NavLink[] = [
     {
         title: "About",
         url: "/about"
+    },
+    {
+        title: "My own recipes",
+        url: "/my-own-recipes"
     }
 ]
 

@@ -5,14 +5,12 @@
       </category-text-field>
       <p class="font-bold">Recipes found: {{ store.spoonRecipes.length }}</p>
     </div>
-    <recipe-list v-if="store.spoonRecipes.length" class="flex justify-center mt-7" :foods="store.spoonRecipes">
-    </recipe-list>
-    <p v-else class="flex items-center justify-center font-bold text-2xl min-h-[50vh]">No data</p>
+    <recipe-list class="flex justify-center mt-7" :recipes="store.spoonRecipes" />
   </main>
 </template>
 
 <script setup lang="ts">
-import RecipeList from "@/components/recipeList/RecipeList.vue";
+import RecipeList from "@/components/lists/recipeList/RecipeList.vue";
 import CategoryTextField from "@/components/UI/textFields/CategoryTextField.vue";
 import { useFoodStore } from "@/store/store";
 import { onMounted } from "vue";
@@ -22,4 +20,5 @@ const store = useFoodStore();
 onMounted(() => {
   store.fetchSpoonRecipes();
 });
+
 </script>
