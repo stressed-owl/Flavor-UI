@@ -1,4 +1,5 @@
 import { NavLink, SocialMediaLink } from "@/interfaces/links/Links";
+import { Category } from "@/interfaces/category/Category";
 import { mdiFacebook, mdiTwitter, mdiInstagram } from "@mdi/js";
 
 const navLinks: NavLink[] = [
@@ -41,4 +42,37 @@ const socialMedia: SocialMediaLink[] = [
 
 const categoryPlaceholders: string[] = ['Dessert', 'Vegetarian', 'German', 'Italian']
 
-export { navLinks, categoryPlaceholders, socialMedia }
+const categoriesList: Category[] = [
+    {
+        image: "@/assets/categories/breakfast.svg",
+        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        title: "Breakfast"
+    },
+    {
+        image: "@/assets/categories/breakfast.svg",
+        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        title: "Vegan"
+    },
+    {
+        image: "@/assets/categories/breakfast.svg",
+        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        title: "Meat"
+    },
+    {
+        image: "@/assets/categories/breakfast.svg",
+        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        title: "Dessert"
+    },
+    {
+        image: "@/assets/categories/breakfast.svg",
+        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        title: "Lunch"
+    },
+    {
+        image: "@/assets/categories/breakfast.svg",
+        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        title: "Chocolate"
+    },
+]
+
+export { navLinks, categoryPlaceholders, socialMedia, categoriesList }

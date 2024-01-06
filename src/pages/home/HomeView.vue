@@ -3,6 +3,7 @@
       <div>
           <home-carousel :recipes="carouselRecipes"/>
           <categories-list />
+          <learn-more />
           <subscribe-inbox />
       </div>
   </main>
@@ -12,8 +13,9 @@
 import { useFoodStore } from "@/store/store";
 import { onMounted } from "vue";
 import HomeCarousel from "@/pages/home/carousel/HomeCarousel.vue";
-import CategoriesList from "@/pages/home/categories/CategoriesList.vue";
+import CategoriesList from "@/pages/home/categoriesList/CategoriesList.vue";
 import SubscribeInbox from "@/pages/home/subscribe/SubscribeInbox.vue";
+import LearnMore from "./learnMore/LearnMore.vue";
 
 const store = useFoodStore();
 
