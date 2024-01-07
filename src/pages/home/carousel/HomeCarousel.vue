@@ -1,6 +1,6 @@
 <template>
     <v-carousel hide-delimiters :show-arrows="false" cycle>
-        <v-carousel-item v-for="recipe in ((props.recipes) as SpoonRecipe[])" max-width="1280" max-height="640" :key="recipe.id" :src="recipe.image" cover>
+        <v-carousel-item v-for="recipe in ((props.recipes) as SpoonRecipe[])" max-width="1640" max-height="840" :key="recipe.id" :src="recipe.image" cover>
             
         </v-carousel-item>
     </v-carousel>

@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <div class="max-w-[1440px] m-auto p-5">
+        <div class="max-w-[1640px] m-auto p-5">
             <div class="flex justify-between items-center">
                 <app-logo></app-logo>
                 <div class="flex items-center gap-x-20">

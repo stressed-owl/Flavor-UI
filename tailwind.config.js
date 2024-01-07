@@ -16,9 +16,9 @@ module.exports = {
       tighter: '-0.96px',
       tight: '-0.36px',
       normal: '0',
-      wide: '',
-      wider: '.05em',
-      widest: '.1em',
+      wide: '0.36px',
+      wider: '0.96px',
+      widest: '1.92px',
     }
   },
   variants: {

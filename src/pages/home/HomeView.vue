@@ -1,11 +1,10 @@
 <template>
   <main>
-      <div>
-          <home-carousel :recipes="carouselRecipes"/>
-          <categories-list />
-          <learn-more />
-          <subscribe-inbox />
-      </div>
+    <home-carousel :recipes="carouselRecipes" />
+    <categories-list />
+    <learn-more />
+    <checkout-instagram />
+    <subscribe-inbox />
   </main>
 </template>
 
@@ -16,6 +15,7 @@ import HomeCarousel from "@/pages/home/carousel/HomeCarousel.vue";
 import CategoriesList from "@/pages/home/categoriesList/CategoriesList.vue";
 import SubscribeInbox from "@/pages/home/subscribe/SubscribeInbox.vue";
 import LearnMore from "./learnMore/LearnMore.vue";
+import CheckoutInstagram from "@/pages/home/instagram/CheckoutInstagram.vue";
 
 const store = useFoodStore();
 
@@ -24,5 +24,4 @@ onMounted(() => {
 });
 
 const carouselRecipes = store.spoonRecipes.slice(0, 3);
-
 </script>

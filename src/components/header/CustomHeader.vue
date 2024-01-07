@@ -1,6 +1,6 @@
 <template>
     <header class="shadow-xl">
-        <div class="py-6 px-7 max-w-[1440px] m-auto flex items-center justify-between">
+        <div class="py-6 px-7 max-w-[1640px] m-auto flex items-center justify-between">
             <app-logo class="sm:text-xl italic"></app-logo>
             <div class="flex items-center gap-x-16 sm:gap-8">
                 <div class="flex items-center gap-x-20 md:hidden sm:gap-8">

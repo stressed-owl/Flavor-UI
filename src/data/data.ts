@@ -1,6 +1,7 @@
 import { NavLink, SocialMediaLink } from "@/interfaces/links/Links";
 import { Category } from "@/interfaces/category/Category";
 import { mdiFacebook, mdiTwitter, mdiInstagram } from "@mdi/js";
+import { CheckoutInsta } from "@/interfaces/checkoutInsta/CheckoutInsta";
 
 const navLinks: NavLink[] = [
     {
@@ -44,35 +45,54 @@ const categoryPlaceholders: string[] = ['Dessert', 'Vegetarian', 'German', 'Ital
 
 const categoriesList: Category[] = [
     {
-        image: "@/assets/categories/breakfast.svg",
-        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        image: require("../assets/categories/breakfast.svg"),
+        bgColor: "linear-gradient(180deg, rgba(112, 130, 70, 0.00) 0%, rgba(112, 130, 70, 0.10) 100%",
         title: "Breakfast"
     },
     {
-        image: "@/assets/categories/breakfast.svg",
-        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        image: require("../assets/categories/vegan.svg"),
+        bgColor: "linear-gradient(180deg, rgba(108, 198, 63, 0.00) 0%, rgba(108, 198, 63, 0.10) 100%",
         title: "Vegan"
     },
     {
-        image: "@/assets/categories/breakfast.svg",
-        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        image: require("../assets/categories/meat.svg"),
+        bgColor: "linear-gradient(180deg, rgba(204, 38, 27, 0.00) 0%, rgba(204, 38, 27, 0.10) 100%",
         title: "Meat"
     },
     {
-        image: "@/assets/categories/breakfast.svg",
-        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        image: require("../assets/categories/dessert.svg"),
+        bgColor: "linear-gradient(180deg, rgba(240, 158, 0, 0.00) 0%, rgba(240, 158, 0, 0.10) 100%",
         title: "Dessert"
     },
     {
-        image: "@/assets/categories/breakfast.svg",
-        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        image: require("../assets/categories/lunch.svg"),
+        bgColor: "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.05) 100%",
         title: "Lunch"
     },
     {
-        image: "@/assets/categories/breakfast.svg",
-        bgColor: "bg-gradient-to-t from-transparent via-green-500 to-green-500",
+        image: require("../assets/categories/chocolate.svg"),
+        bgColor: "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.05) 100%",
         title: "Chocolate"
     },
 ]
 
-export { navLinks, categoryPlaceholders, socialMedia, categoriesList }
+const checkoutInstagramImages: CheckoutInsta[] = [
+    {
+        id: 1,
+        image: require("../assets/instagram/insta_post_1.png")
+    },
+    {
+        id: 2,
+        image: require("../assets/instagram/insta_post_2.png")
+    },
+    {
+        id: 3,
+        image: require("../assets/instagram/insta_post_3.png")
+    },
+    {
+        id: 4,
+        image: require("../assets/instagram/insta_post_4.png")
+    },
+]
+
+export { navLinks, categoryPlaceholders, socialMedia, categoriesList, checkoutInstagramImages }
