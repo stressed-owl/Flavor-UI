@@ -13,15 +13,15 @@ export const useFoodStore = defineStore("food", () => {
   const foodCategory = ref<string>("");
 
   // Ref variable that holds modal's state
-  const isModalShown = ref(false);
+  const isModalShown = ref<boolean>(false);
 
   // Ref variables that hold user's custom recipe values
-  const name = ref("");
-  const type = ref("");
-  const cuisine = ref("");
-  const ingredients = ref("");
-  const cookingTime = ref("");
-  const instructions = ref("");
+  const name = ref<string>("");
+  const type = ref<string>("");
+  const cuisine = ref<string>("");
+  const ingredients = ref<string>("");
+  const cookingTime = ref<string>("");
+  const instructions = ref<string>("");
 
   // Fetching recipies from Spoonacular API
   const fetchSpoonRecipes = async () => {

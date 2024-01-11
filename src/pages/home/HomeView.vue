@@ -1,19 +1,21 @@
 <template>
   <main>
-    <div class="flex flex-col justify-center items-center">
-      <category-text-field @keyup.enter="store.fetchSpoonRecipes" class="max-w-[500px] w-full">
-      </category-text-field>
-      <p class="font-bold">Recipes found: {{ store.spoonRecipes.length }}</p>
-    </div>
-    <recipe-list class="flex justify-center mt-7" :recipes="store.spoonRecipes" />
+    <home-carousel :recipes="carouselRecipes" />
+    <categories-list />
+    <learn-more />
+    <checkout-instagram />
+    <subscribe-inbox />
   </main>
 </template>
 
 <script setup lang="ts">
-import RecipeList from "@/components/lists/recipeList/RecipeList.vue";
-import CategoryTextField from "@/components/UI/textFields/CategoryTextField.vue";
 import { useFoodStore } from "@/store/store";
 import { onMounted } from "vue";
+import HomeCarousel from "@/pages/home/carousel/HomeCarousel.vue";
+import CategoriesList from "@/pages/home/categoriesList/CategoriesList.vue";
+import SubscribeInbox from "@/pages/home/subscribe/SubscribeInbox.vue";
+import LearnMore from "./learnMore/LearnMore.vue";
+import CheckoutInstagram from "@/pages/home/instagram/CheckoutInstagram.vue";
 
 const store = useFoodStore();
 
@@ -21,4 +23,5 @@ onMounted(() => {
   store.fetchSpoonRecipes();
 });
 
+const carouselRecipes = store.spoonRecipes.slice(0, 3);
 </script>

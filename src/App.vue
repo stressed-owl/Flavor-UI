@@ -1,7 +1,7 @@
 <template>
   <div>
     <custom-header></custom-header>
-    <div class="max-w-[1325px] m-auto px-7">
+    <div class="max-w-[1640px] m-auto px-7">
       <router-view class="my-[50px] min-h-[60vh]"></router-view>
     </div>
     <custom-footer></custom-footer>

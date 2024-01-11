@@ -11,6 +11,15 @@ module.exports = {
       "md": { max: "767px" },
       "sm": { max: "639px" },
     },
+    letterSpacing: {
+      tightest: '-1.92px',
+      tighter: '-0.96px',
+      tight: '-0.36px',
+      normal: '0',
+      wide: '0.36px',
+      wider: '0.96px',
+      widest: '1.92px',
+    }
   },
   variants: {
     extend: {},
