@@ -1,6 +1,7 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from "@/pages/home/HomeView.vue"
-import AboutView from "@/pages/about/AboutView.vue"
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import HomeView from "@/pages/home/HomeView.vue";
+import AboutView from "@/pages/about/AboutView.vue";
+import ContactView from "@/pages/contact/ContactView.vue";
 import RecipeDetails from "@/pages/recipeDetails/RecipeDetails.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -23,6 +24,11 @@ const routes: Array<RouteRecordRaw> = [
       path: "/recipe/:id",
       name: "Recipe Details",
       component: RecipeDetails
+    },
+    {
+      path: "/contact",
+      name: "Contact",
+      component: ContactView
     },
 ]
 
